@@ -6,21 +6,20 @@ A cordova plugin, a JS version of Agora SDK
 山西蚨坤科技有限公司 贾之光码农
 
 # Feature
-
 使用agora 信令包和音视频包实现一对一视频通话。 类似微信的视频通话。 接受通话时，可以从视频降级到音频。
 IOS 包括了pushkit 和 localNotification 功能。 接收到来电时候，从后台唤醒。
 
 # Example
-
 无
 
 # 安装
+1. 从[这里](https://github.com/AgoraIO-Community/cordova-video-chat/releases/tag/1.0.0)下载demo自带的相关sdk，并置入iOS与Android对应的目录里
 
-1. ```cordova plugin add cordova-plugin-agora```
+2. ```cordova plugin add cordova-plugin-agora```
 
-2. ```cordova build ios``` or ```cordova build android```
+3. ```cordova build ios``` or ```cordova build android```
 
-3. (iOS only) 
+4. (iOS only) 
 
 # Usage
 我使用的是typeScript
