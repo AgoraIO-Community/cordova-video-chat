@@ -1,0 +1,12 @@
+repositories {
+    jcenter()
+}
+
+dependencies {
+   compile 'io.agora.rtc:full-sdk:2.2.0'
+    
+}
+
+android {
+    buildToolsVersion '23.0.2' // Older versions may give compile errors
+}

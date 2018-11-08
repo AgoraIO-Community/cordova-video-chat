@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+    xmlns:rim="http://www.blackberry.com/ns/widgets"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    id="cordova-plugin-agora"
+    version="2.0.0">
+
+    <name>Agora</name>
+    <description>A cordova plugin, a JS version of Agora SDK</description>
+    <license>MIT</license>
+    <keywords>cordova,Agora,Agora,share</keywords>
+   
+
+    <!-- add this to your config.xml -->
+    <!-- <preference name="WECHATAPPID" value="YOUR_WECHAT_APP_ID_HERE" /> -->
+    <!-- <preference name="WECHATAPPID" /> -->
+
+    <!-- js module-->
+    <js-module src="www/agora.js" name="Agora">
+        <clobbers target="Agora" />
+    </js-module>
+
+    
+  <platform name="ios">
+    <config-file target="config.xml" parent="/*">
+      <feature name="Agora">
+        <param name="ios-package" value="AgoraPlugin" />
+      </feature>
+    </config-file>
+    <header-file src="src/iOS/agora.h"/>
+    <source-file src="src/iOS/agora.m"/>
+    <header-file src="src/iOS/Chat/AGDChatViewController.h" target-dir=""/>
+    <source-file src="src/iOS/Chat/AGDChatViewController.m" target-dir=""/>
+    <header-file src="src/iOS/Chat/AGDChatCell.h" target-dir=""/>
+    <source-file src="src/iOS/Chat/AGDChatCell.m" target-dir=""/>
+    <framework src="src/iOS/lib/AgoraRtcEngineKit.framework" custom="true"/>
+	 <framework src="src/iOS/lib/AgoraSigKit.framework" custom="true"/>
+    <source-file src="src/iOS/lib/Crasheye/libCrasheye.a" framework="true"/>
+    <header-file src="src/iOS/lib/Crasheye/Crasheye.h" target-dir=""/>
+    <resource-file src="src/iOS/ChatView.storyboard" target-dir=""/>
+    <resource-file src="src/iOS/Images.xcassets" target-dir=""/>
+    <resource-file src="src/iOS/ios_ring.caf" target-dir="/"/>
+    <framework src="AudioToolbox.framework"></framework>
+    <framework src="VideoToolbox.framework"></framework>
+    <framework src="AVFoundation.framework"></framework>
+    <framework src="CoreMedia.framework"></framework>
+    <framework src="CoreTelephony.framework"></framework>
+    <framework src="CoreMotion.framework"></framework>
+    <framework src="SystemConfiguration.framework"></framework>
+    <framework src="libc++.dylib"></framework>
+    <framework src="libz.dylib"></framework>
+  </platform>
+
+
+    <!-- android -->
+    <platform name="android">
+        
+
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="Agora">
+                <param name="android-package" value="com.panopath.plugin.agora.Agora"/>
+            </feature>
+           
+        </config-file>
+        
+        <config-file target="AndroidManifest.xml" parent="/*">
+      <uses-permission android:name="android.permission.INTERNET"/>
+      <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+      <uses-permission android:name="android.permission.BLUETOOTH"/>
+      <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS"/>
+      <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+      <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+      <uses-permission android:name="android.permission.WAKE_LOCK"/>
+      <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+      <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+      <uses-permission android:name="android.permission.CAMERA"/>
+    </config-file>
+
+
+    <config-file target="res/values/strings.xml" parent="/resources">
+      <string name="waiting_notification">正在等待其他成员加入\nWaiting for other attendees</string>
+    </config-file>
+
+    <config-file target="AndroidManifest.xml" parent="/manifest/application">
+      <activity android:label="@string/app_name" android:name="com.panopath.plugin.agora.VideoActivity"  android:theme="@android:style/Theme.Light.NoTitleBar.Fullscreen">
+      </activity>
+    </config-file>
+
+    <source-file src="src/android/com/panopath/plugin/agora/Agora.java" target-dir="src/com/panopath/plugin/agora"/>
+    
+    <source-file src="src/android/com/panopath/plugin/agora/FakeR.java" target-dir="src/com/panopath/plugin/agora"/>
+
+    <source-file src="src/android/com/panopath/plugin/agora/VideoActivity.java"
+                 target-dir="src/com/panopath/plugin/agora"/>
+
+    <source-file src="src/android/com/panopath/plugin/agora/BaseActivity.java"
+                 target-dir="src/com/panopath/plugin/agora"/>
+                 
+    <source-file src="src/android/com/panopath/plugin/agora/BaseEngineEventHandlerActivity.java"
+                 target-dir="src/com/panopath/plugin/agora"/>
+                 
+    <source-file src="src/android/com/panopath/plugin/agora/MessageHandler.java"
+                 target-dir="src/com/panopath/plugin/agora"/>
+                 
+    <source-file src="src/android/com/panopath/plugin/agora/RtcEngineCreator.java"
+                 target-dir="src/com/panopath/plugin/agora"/>
+                 
+    <source-file src="src/android/libs/agora-rtc-sdk.jar" target-dir="libs"/>
+
+	
+	<!-- v7a -->
+    <source-file src="src/android/libs/armeabi-v7a/libagora-rtc-sdk-jni.so" target-dir="libs/armeabi-v7a"
+                 framework="true"/>
+
+    <source-file src="src/android/libs/armeabi-v7a/libagora-crypto.so" target-dir="libs/armeabi-v7a"
+                 framework="true"/>
+   
+	<!-- arm64-v8a -->
+    <source-file src="src/android/libs/arm64-v8a/libagora-rtc-sdk-jni.so" target-dir="libs/arm64-v8a"
+                 framework="true"/>
+
+    <source-file src="src/android/libs/arm64-v8a/libagora-crypto.so" target-dir="libs/arm64-v8a"
+                 framework="true"/>
+				 
+	<!-- x86 -->
+                
+
+    <source-file src="src/android/libs/x86/libagora-crypto.so" target-dir="libs/x86"
+                 framework="true"/>
+    <source-file src="src/android/libs/x86/libagora-rtc-sdk-jni.so" target-dir="libs/x86"  framework="true"/>
+
+		<!-- include -->
+    <source-file src="src/android/libs/include/AgoraBase.h" target-dir="libs/include"
+                 framework="true"/>
+
+    <source-file src="src/android/libs/include/IAgoraMediaEngine.h" target-dir="libs/include"
+                 framework="true"/>
+	<source-file src="src/android/libs/include/IAgoraRtcEngine.h" target-dir="libs/include"
+                 framework="true"/>
+
+    <source-file src="src/android/libs/include/IAgoraService.h" target-dir="libs/include"
+                 framework="true"/>
+				 
+    <source-file src="src/android/res/drawable-hdpi/btn_end_call.png" target-dir="res/drawable-hdpi" framework="true"/>
+
+    <source-file src="src/android/res/drawable-hdpi/btn_mic.png" target-dir="res/drawable-hdpi" framework="true"/>
+
+	 <source-file src="src/android/res/drawable-hdpi/icon_go_back.png" target-dir="res/drawable-hdpi" framework="true"/>
+
+    <source-file src="src/android/res/drawable-hdpi/btn_video.png" target-dir="res/drawable-hdpi" framework="true"/>
+	<source-file src="src/android/res/drawable-hdpi/btn_switch_camera.png" target-dir="res/drawable-hdpi" framework="true"/>
+	<source-file src="src/android/res/drawable-hdpi/speaker.png" target-dir="res/drawable-hdpi" framework="true"/>
+	
+    <source-file src="src/android/layout/video.xml" target-dir="res/layout"/>
+	<source-file src="src/android/raw/ios_7_apple.mp3" target-dir="res/raw"/>
+	
+    
+
+	<source-file src="src/android/libs/arm64-v8a/libagora-sig-sdk-jni.so" target-dir="libs/arm64-v8a"
+                 framework="true"/>	
+	<source-file src="src/android/libs/armeabi-v7a/libagora-sig-sdk-jni.so" target-dir="libs/armeabi-v7a"
+                 framework="true"/>	
+	<source-file src="src/android/libs/x86/libagora-sig-sdk-jni.so" target-dir="libs/x86"
+                 framework="true"/>	
+				 
+	<source-file src="src/android/libs/agora-sig-sdk.jar" target-dir="libs"/>			 
+    </platform>
+</plugin>

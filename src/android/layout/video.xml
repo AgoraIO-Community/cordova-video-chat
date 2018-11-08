@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:id="@+id/mainFrame"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/white">
+
+
+   </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/localVideoFrame"
+        android:layout_width="160dp"
+        android:layout_height="284dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginEnd="@dimen/activity_horizontal_margin"
+        android:layout_marginRight="@dimen/activity_horizontal_margin"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:background="#00000000" />
+
+        <RelativeLayout
+        android:id="@+id/custom_title_bar"
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="0dp"
+        android:background="@android:color/transparent"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp">
+
+
+            <ImageView
+                android:id="@+id/peer_image"
+                android:layout_width="@android:dimen/app_icon_size"
+                android:layout_height="@android:dimen/app_icon_size"
+                android:src="@mipmap/icon" />
+
+            <TextView
+                android:id="@+id/waiting_notification"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_centerVertical="true"
+                android:layout_gravity="center"
+                android:layout_marginLeft="10dp"
+                android:layout_marginEnd="76dp"
+                android:layout_marginBottom="3dp"
+                android:background="@android:color/transparent"
+                android:gravity="left"
+                android:text="@string/waiting_notification"
+                android:textColor="#000000"
+                android:textSize="18sp"
+                tools:background="@android:color/transparent" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="@dimen/activity_vertical_margin"
+        android:orientation="vertical">
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+			android:background="#00000000"
+            android:orientation="horizontal">
+
+            <!--<ImageButton
+                android:layout_width="0dp"
+				android:background="#00000000"
+				android:id="@+id/btn_mic"
+                android:layout_height="match_parent"
+                android:layout_weight="20"
+                
+                android:scaleType="centerInside"
+                android:src="@drawable/btn_mic" />-->
+
+            <ImageButton
+                android:layout_width="0dp"
+				android:background="#00000000"
+				android:id="@+id/btn_speaker"
+                android:layout_height="match_parent"
+                android:layout_weight="20"
+                
+                android:scaleType="centerInside"
+                android:src="@drawable/speaker" />
+            <!--<ImageButton
+                android:layout_width="0dp"
+                
+                android:id="@+id/btn_video"
+                android:layout_height="match_parent"
+                android:layout_weight="20"
+                android:background="#00000000"
+                android:scaleType="centerInside"
+                android:src="@drawable/btn_video" />-->
+            <ImageButton
+				android:id="@+id/btn_switch_camera"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="20"
+                android:background="#00000000"
+                android:scaleType="centerInside"
+                android:src="@drawable/btn_switch_camera" />
+
+            <ImageButton
+                android:layout_width="0dp"
+				android:id="@+id/btn_go_back"
+                android:layout_height="match_parent"
+                android:layout_weight="20"
+                android:background="#00000000"
+                android:scaleType="centerInside"
+				android:src="@drawable/btn_end_call"
+                 />
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>

@@ -1,0 +1,1 @@
+Download android-libs.zip and unzip to this folder.
