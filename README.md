@@ -2,6 +2,9 @@
 
 A cordova plugin, a JS version of Agora SDK
 
+# Author
+山西蚨坤科技有限公司 贾之光码农
+
 # Feature
 
 使用agora 信令包和音视频包实现一对一视频通话。 类似微信的视频通话。 接受通话时，可以从视频降级到音频。
@@ -13,7 +16,7 @@ IOS 包括了pushkit 和 localNotification 功能。 接收到来电时候，从
 
 # 安装
 
-1. ```cordova plugin add cordova-plugin-agora  
+1. ```cordova plugin add cordova-plugin-agora```
 
 2. ```cordova build ios``` or ```cordova build android```
 
@@ -22,17 +25,12 @@ IOS 包括了pushkit 和 localNotification 功能。 接收到来电时候，从
 # Usage
 我使用的是typeScript
 
-## 
-
-1. 先声明agora变量
-
-
+## 先声明agora变量
 ```Javascript
 declare var Agora
-
-
 ```
-2. 设置消息回调函数
+
+## 设置消息回调函数
 
 Agora.setCallBack((event) => {
 	 let eventName = event["eventName"]
@@ -96,34 +94,34 @@ export var AGORA_EVENTS = {
 ```
 
 
-3. agora.js 和native code 通信
+## agora.js 和native code 通信
 有几个函数的参数写的很长。有些参数可能不必要。
 还有些函数不必要。 例如 setKey
  每次需要appid和token的场合， 都必须把他们从javascript端送到native端。 native不储存。 
 有些送进去的successCallback 和 failCallback 在native 端执行完以后，并没有被调用。 因为native sdk 全部是异步调用。 如果觉得不妥，可以加上。 不过每次nativecode的 onApiCallExecuted 的回调都被送回javascript端。
 
-4. 登陆
+## 登陆
 ```
 Agora.login(appId, token,  account, expiredTime, successCallback, failCallback)
 ```
 
-5. 邀请对方通话
+## 邀请对方通话
 ```
 Agora.channelInviteUser(appId,  token,  channel,  optionalUID,   account,  accountName, extra, chatMode,successCallback, failCallback)
 ```
 在native端， 邀请对方的同时，己方就设置了通话环境，并加入channel等待对方反应。同时调用信令端查看对方是否在线。 不在线的话，event会送回来， 在javascript端口可以调用推送消息通知对方等等。
 
-6. 接收到邀请加入
+## 接收到邀请加入
 ```
 joinChannel(appId,  token,  channel,  optionalUID,   peerAccount,  peerName, chatMode, successCallback, failCallback)
 
 ```
 
-7. 清理native 代码
+## 清理native 代码
 
 native代码中有很多不用的code， 对native不太熟悉， 只是修改了某些一对一通信能用到的。 其他的都leave it as it is. 希望Agora的同学能清理下， 不然看着很乱。
 
 
-8. 有些resource觉得不合适的可以清理掉
+## 有些resource觉得不合适的可以清理掉
 
 图片之类的。 特别是ios的界面适配。 在从视频转到音频的时候， 哪几个不需要的按钮去掉之后，怎么重排按钮， 这个我不太懂。
