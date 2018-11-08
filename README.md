@@ -13,7 +13,7 @@ IOS 包括了pushkit 和 localNotification 功能。 接收到来电时候，从
 无
 
 # 安装
-1. 从[这里](https://github.com/AgoraIO-Community/cordova-video-chat/releases/tag/1.0.0)下载demo自带的相关sdk，并置入iOS与Android对应的目录里
+1. 从[这里](https://github.com/AgoraIO-Community/cordova-video-chat/releases/tag/1.0.0)下载demo自带的相关sdk，并解压后置入iOS(/src/iOS/lib)与Android(/src/android/libs)对应的目录里
 
 2. ```cordova plugin add cordova-plugin-agora```
 
