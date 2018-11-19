@@ -120,7 +120,3 @@ joinChannel(appId,  token,  channel,  optionalUID,   peerAccount,  peerName, cha
 
 native代码中有很多不用的code， 对native不太熟悉， 只是修改了某些一对一通信能用到的。 其他的都leave it as it is. 希望Agora的同学能清理下， 不然看着很乱。
 
-
-## 有些resource觉得不合适的可以清理掉
-
-图片之类的。 特别是ios的界面适配。 在从视频转到音频的时候， 哪几个不需要的按钮去掉之后，怎么重排按钮， 这个我不太懂。
